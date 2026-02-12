@@ -1,7 +1,7 @@
 package cassimirodev.freelachat.model;
 
 
-import cassimirodev.freelachat.enums.SendTyper;
+import cassimirodev.freelachat.enums.SendType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,7 +26,7 @@ public class Message {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private SendTyper SenderType;
+    private SendType SenderType;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;

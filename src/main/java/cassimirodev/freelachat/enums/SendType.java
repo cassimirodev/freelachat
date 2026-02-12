@@ -1,6 +1,6 @@
 package cassimirodev.freelachat.enums;
 
-public enum SendTyper {
+public enum SendType {
     BOT,
     USER
 }
