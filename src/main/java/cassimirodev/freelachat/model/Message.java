@@ -14,19 +14,20 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "Id")
+@EqualsAndHashCode(of = "id")
 public class Message {
 
     @Id
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "chat_id", nullable = false)
     private Chat chat;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private SendType SenderType;
+    private SendType senderType;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;

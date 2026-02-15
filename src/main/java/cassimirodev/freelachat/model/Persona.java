@@ -20,8 +20,7 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
-    private Long Id;
+    private Long id;
 
     @Column(nullable = false)
     @NotNull

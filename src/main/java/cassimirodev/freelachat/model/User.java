@@ -32,6 +32,11 @@ public class User {
     @NotNull
     private String name;
 
+    @Column(nullable = false)
+    @NotNull
+    private String password;
+
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
