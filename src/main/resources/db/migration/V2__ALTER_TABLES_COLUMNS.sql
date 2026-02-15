@@ -1,6 +1,6 @@
 ALTER TABLE messages
 DROP
-CONSTRAINT fk432uswp9w9t9x6vpgkxk7llf;
+CONSTRAINT IF EXISTS fk432uswp9w9t9x6vpgkxk7llf;
 
 ALTER TABLE messages
     ADD chat_id UUID;

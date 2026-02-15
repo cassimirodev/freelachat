@@ -9,6 +9,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,19 +19,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 public class PersonaFactoryTest {
 
-    @Mock
-    private FakerConfig faker;
 
-    @InjectMocks
+    @Autowired
     private PersonaFactory factory;
 
     @Test
     public void  itCanCreateAPersona() {
 
-        when(faker.data()).thenReturn(new Faker());
 
         Persona persona = factory.createRandomPersona();
 
@@ -43,14 +42,15 @@ public class PersonaFactoryTest {
     @Test
     public void itShouldCreateDifferentPersonas() {
 
-        Set<Persona> resultants = new HashSet<>();
+        Set<String> resultants = new HashSet<>();
 
-        when(faker.data()).thenReturn(new Faker());
 
         for (int i = 0; i < 100; i++) {
             Persona persona = factory.createRandomPersona();
-            resultants.add(persona);
+            resultants.add(persona.getName());
         }
+
+        assertTrue(resultants.size() > 1, "Deveria gerar nomes diferentes");
     }
 
 

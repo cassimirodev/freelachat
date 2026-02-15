@@ -11,6 +11,6 @@ public class FakerConfig {
 
     @Bean
     public Faker data() {
-        return new Faker(Locale.of("pt-BR"));
+        return new Faker(new Locale("pt", "BR"));
     }
 }
