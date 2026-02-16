@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -41,7 +42,7 @@ public class Chat {
     private Persona persona;
 
     @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ArrayList<Message> messages;
+    private List<Message> messages;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
