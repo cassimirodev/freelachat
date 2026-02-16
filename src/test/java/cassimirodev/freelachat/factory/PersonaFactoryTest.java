@@ -22,9 +22,11 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class PersonaFactoryTest {
 
+    private final PersonaFactory factory;
 
-    @Autowired
-    private PersonaFactory factory;
+    public PersonaFactoryTest(PersonaFactory factory) {
+        this.factory = factory;
+    }
 
     @Test
     public void  itCanCreateAPersona() {
@@ -50,7 +52,7 @@ public class PersonaFactoryTest {
             resultants.add(persona.getName());
         }
 
-        assertTrue(resultants.size() > 1, "Deveria gerar nomes diferentes");
+        assertTrue(resultants.size() > 1);
     }
 
 
