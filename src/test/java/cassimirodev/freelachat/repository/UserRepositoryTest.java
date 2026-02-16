@@ -10,6 +10,6 @@ import org.springframework.test.context.ActiveProfiles;
 public class UserTest {
 
 
-
+    // todo: add test for userRepository
 
 }

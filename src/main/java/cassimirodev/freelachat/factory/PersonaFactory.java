@@ -11,13 +11,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class PersonaFactory {
 
-    @Autowired
-    private FakerConfig faker;
+    private final FakerConfig faker;
+    private final PersonalityPersonaPromptTemplate personaPromptTemplate;
 
+    public PersonaFactory(FakerConfig faker, PersonalityPersonaPromptTemplate personaPromptTemplate) {
+        this.faker = faker;
+        this.personaPromptTemplate = personaPromptTemplate;
+    }
 
     public Persona createRandomPersona() {
         PersonaType type = PersonaType.getRandomPersonality();
-        String systemPrompt = PersonalityPersonaPromptTemplate.getPersonalityPromptToPersona(type);
+        String systemPrompt = personaPromptTemplate.getPersonalityPromptToPersona(type);
 
         Persona persona = new Persona();
 
