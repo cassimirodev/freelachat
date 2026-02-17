@@ -1,5 +1,6 @@
 package cassimirodev.freelachat.enums;
 
+import cassimirodev.freelachat.factory.PersonaFactory;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
@@ -31,7 +32,8 @@ public class PersonaTypeTest {
      */
     @RepeatedTest(100)
     void shouldReturnOnlyEnumValues() {
-        PersonaType result = PersonaType.getRandomPersonality();
+        PersonaFactory factory = new PersonaFactory(null, null);
+        PersonaType result = factory.getRandomPersonaType();
 
         boolean isValid = result == PersonaType.BRAVA ||
                 result == PersonaType.CALMA ||
@@ -47,10 +49,11 @@ public class PersonaTypeTest {
      */
     @Test
     void shouldReturnARandomPersonalityDifferentEveryTime() {
+        PersonaFactory factory = new PersonaFactory(null, null);
         Set<PersonaType> resultants = new HashSet<>();
 
         for (int i = 0; i < 100; i++) {
-            PersonaType tipo = PersonaType.getRandomPersonality();
+            PersonaType tipo = factory.getRandomPersonaType();
             resultants.add(tipo);
         }
 
